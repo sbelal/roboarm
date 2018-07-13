@@ -27,11 +27,11 @@ def runRoboArm(arduino, motorAngles):
     
 
 
-arduino = initRoboArm('COM3')
-for i in range(1, 170,20):    
-    runRoboArm(arduino,[i,0,0])
+#arduino = initRoboArm('COM3')
+#for i in range(1, 170,20):    
+#    runRoboArm(arduino,[i,0,0])
 
 
 
 
-print("Done!")
+#print("Done!")

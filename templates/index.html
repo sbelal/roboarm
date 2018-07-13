@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Collab Arm</title>
+
+   
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+   
+  </head>
+
+
+  
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Sign In</a></li>
+ 	    <li role="presentation"><a href="/showSignUp">Sign Up</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Python Flask App</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Collab Arm (tm)</h1>
+        <p class="lead"></p>
+        <p><a class="btn btn-lg btn-success" href="showSignUp" role="button">Sign up today</a></p>
+      </div>
+
+      <div class="row marketing">
+
+
+        <div class="col-lg-12">
+          
+          <form class="form-signin" action="/signUp" method="post" role="form">
+            <h2 class="form-signin-heading">Enter arm coordinates (0 to 180)</h2>
+            <input type="text" name="m0" class="form-control" placeholder="motor 0" required autofocus>
+            <input type="text" name="m1" class="form-control" placeholder="motor 1" required>
+            <input type="text" name="m1" class="form-control" placeholder="motor 2" required>
+
+            <button class="btn btn-lg btn-primary btn-block" type="button">Action!</button>
+          </form>
+
+
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Company 2015</p>
+      </footer>
+
+    </div>
+  </body>
+
+
+  <script>
+      $(function() {
+        $('button').click(function() {
+            alert("hello!");
+            $.ajax({
+                url: '/api/v1.0/movearm',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+      });
+    </script>
+
+</html>
